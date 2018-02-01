@@ -2942,6 +2942,62 @@ HANDLERS= [
     (r"/shop/youhaoya1", channel.youhaoya.YouHaoYaPageHandler),
     
     #测试
+	
+	# ----------------------------------------------  微信，黑牛有钱  -----------------------------------------
+    (r"/weinxin/loan/validate", weixin.loan.loan_handlers.ValidateHandler),
+    (r"/weixin/loan/menu_setter", weixin.loan.loan_handlers.MenuHandler),
+    (r"/weixin/loan/api/login/passport", weixin.loan.loan_handlers.LoginHandler),
+    (r"/weixin/loan/api/random", weixin.loan.loan_handlers.RandomHandler),
+    (r"/weixin/loan/api/captcha", weixin.loan.loan_handlers.CatpchaHandler),
+    (r"/weixin/loan/api/captchacheck", weixin.loan.loan_handlers.CatpchaCheckHandler),
+    (r"/weixin/loan/api/bind", weixin.loan.loan_handlers.BindHandler),
+    (r"/weixin/loan/api/modify_mobile", weixin.loan.loan_handlers.ModifyMobileHandler),
+    (r"/weixin/loan/api/bindcheck", weixin.loan.loan_handlers.BindCheckHandler),
+    (r"/weixin/loan/api/float_ad", weixin.loan.loan_handlers.LoanHomeFloatAdHandler),
+    (r"/weixin/loan/api/home", weixin.loan.loan_handlers.LoanInitApiHandler),
+    (r"/weixin/loan/api/evaluate/financing", weixin.loan.loan_handlers.LoanCheckQuestionApiHandler),
+    (r"/weixin/loan/api/question", weixin.loan.loan_handlers.LoanQuestionApiHandler),
+    (r"/weixin/loan/api/financing_result", weixin.loan.loan_handlers.LoanQuestionResultApiHandler),
+    (r"/weixin/loan/api/list/loan", weixin.loan.loan_handlers.LoanListApiHandler),
+    (r"/weixin/loan/api/list/financing", weixin.loan.loan_handlers.FinancingListApiHandler),
+    (r"/weixin/loan/api/list/insu", weixin.loan.loan_handlers.InsuranceListApiHandler),
+    (r"/weixin/loan/api/list/insu/detail", weixin.loan.loan_handlers.InsuranceDetailApiHandler),
+    (r"/weixin/loan/api/evaluate/loan", weixin.loan.loan_handlers.LoanCheckRecordApiHandler),
+    (r"/weixin/loan/api/fillin", weixin.loan.loan_handlers.LoanFillinApiHandler),
+    (r"/weixin/loan/api/perfected", weixin.loan.loan_handlers.LoanPerfectedApiHandler),
+    (r"/weixin/loan/api/big_loan", weixin.loan.loan_handlers.LoanLargeRecommendApiHandler),
+    (r"/weixin/loan/api/big_loan_check", weixin.loan.loan_handlers.LoanLargeCheckApiHandler),
+    (r"/weixin/loan/api/small_loan", weixin.loan.loan_handlers.LoanSmallRecommendApiHandler),
+    (r"/weixin/loan/api/loan_result", weixin.loan.loan_handlers.LoanResultApiHandler),
+    (r"/weixin/loan/api/mine", weixin.loan.loan_handlers.LoanMineApiHandler),
+    (r"/weixin/loan/api/personal/message", weixin.loan.loan_handlers.LoanPersonalMsgApiHandler),
+    (r"/weixin/loan/api/personal/loan", weixin.loan.loan_handlers.LoanPersonalLoanApiHandler),
+    (r"/weixin/loan/api/personal/policy", weixin.loan.loan_handlers.LoanMyPolicyApiHandler),
+    (r"/weixin/loan/api/personal/policy_detail", weixin.loan.loan_handlers.LoanMyPolicyDetailApiHandler),
+    (r"/weixin/loan/api/personal/policy_select", weixin.loan.loan_handlers.LoanOthersPolicyDetailApiHandler),
+    (r"/weixin/loan/api/insu", weixin.loan.loan_handlers.InsuCalculateHandler),
+    (r"/weixin/loan/api/tool/lottery", weixin.loan.loan_handlers.LotteryHandler),
+    (r"/weixin/loan/api/tool/salary", weixin.loan.loan_handlers.SalaryHandler),
+    (r"/weixin/loan/api/tool/salary_sociaty", weixin.loan.loan_handlers.SalarySociatyHandler),
+    (r"/weixin/loan/api/tool/result_salary", weixin.loan.loan_handlers.SalaryResultHandler),
+    (r"/weixin/loan/api/info/list", weixin.loan.loan_handlers.PageListHandler),
+    (r"/weixin/loan/api/info/content", weixin.loan.loan_handlers.PageContentHandler),
+    
+    (r"/weixin/loan/views/auth/(.+)", weixin.loan.loan_handlers.LoanViewsAuthPageHandler),
+    (r"/weixin/loan/views/bind/(.+)", weixin.loan.loan_handlers.LoanViewsBindPageHandler),
+    (r'/MP_verify_msVousXb68LpeIzK.txt', weixin.loan.loan_handlers.VerifyDomainHandler),
+    
+    (r'/activity/weixin/sudaizhijia', weixin.loan.loan_handlers.SuDaiZhiJiaPageHandler),
+    (r'/activity/weixin/rong360', weixin.loan.loan_handlers.Rong360PageHandler),
+    (r'/activity/weixin/paph', weixin.loan.loan_handlers.PingAnPuHuiPageHandler),
+    (r'/activity/weixin/heika', weixin.loan.loan_handlers.HeikaPageHandler),
+    (r'/activity/weixin/huicheliandong', weixin.loan.loan_handlers.HuiCheLianDongPageHandler),
+    (r'/activity/weixin/dalujietiao', weixin.loan.loan_handlers.DaLuJieTiaoPageHandler),
+    (r'/activity/weixin/niwodai', weixin.loan.loan_handlers.NiWoDaiPageHandler),
+    
+    (r'/weixin/loan/api/tool/mortgage', weixin.loan.loan_handlers.MortgagePageHandler),
+    (r'/weixin/loan/api/tool/result_mortgage', weixin.loan.loan_handlers.MortgageResultPageHandler),
+    (r'/weixin/loan/api/ad/ticket', weixin.loan.loan_handlers.AdPageHandler)
 ]
 
 
