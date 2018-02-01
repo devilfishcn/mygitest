@@ -2941,7 +2941,7 @@ HANDLERS= [
     (r"/shop/cixuanfu1", channel.cixuanfu.CiXuanFuPageHandler),
     (r"/shop/youhaoya1", channel.youhaoya.YouHaoYaPageHandler),
     
-    
+    #测试
 ]
 
 
