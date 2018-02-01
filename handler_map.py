@@ -119,7 +119,7 @@ import insurance.lottery.chailiwu
 import insurance.lottery.pick
 import insurance.lottery.red_packet
 import weixin.wxhandler
-import weixin.loan.loan_handlers
+import weixin.accuse
 import weixin.insurance_wx
 import shop.jingpin_shop
 import page_base
@@ -349,6 +349,19 @@ HANDLERS= [
     (r"/activity/pinxiao1", channel.tv_yaoyiyao.PinXiao1PageHandler),
     (r"/activity/(pinxiao[2-4])", channel.tv_yaoyiyao.PinXiao2PageHandler),
     (r"/activity/pinxiao5", channel.tv_yaoyiyao.PinXiao5PageHandler),
+    (r"/activity/(pxddcpc[1-3])", channel.tv_yaoyiyao.PinXiaoDiDiCpcPageHandler),
+    (r"/activity/(pxmtcpc[1-2])", channel.bianxianmao.PinXiaoMeiTuanCPCPageHandler),
+    (r"/activity/(pxhkjcpc[1-2])", channel.duiba.PinXiaoHuanKuanJinPageHander),
+    (r"/activity/pinxiaodk1", channel.bianxianmao.PinXiaoDaiKuanPageHandler),
+    (r"/activity/pinxiaodk2", channel.bianxianmao.PinXiaoDaiKuanPage2Handler),
+
+    # 厚拓 一点资讯
+    (r"/activity/yidianzxdk1", channel.bianxianmao.HouTuoYiDianZiXunDaiKuanPageHandler),
+    (r"/activity/(yidianzxtkcpc[1-4])", channel.taikang.HouTuoYiDianZiXunTaiKangPageHander),
+
+    # 融易推
+    (r"/activity/rtydk1", channel.bianxianmao.RongYiTuiDaiKuanPageHandler),
+
     # 平安测保
     (r"/calculate_premium/pingan", channel.calculate_premium.CalculatePremium),
     (r"/calculate_premium_mgb/pingan", channel.calculate_premium.CalculatePremium_MGB),
@@ -508,8 +521,15 @@ HANDLERS= [
     (r"/appointment/tvtk1", channel.appointment.AppointmentTKTV),
     # 趣头条
     (r"/activity/(qutttk[1-3])", channel.taikang.QuTouTiaoTaiKangPageHander),
-    (r"/activity/quttddcpc1", channel.duiba.QuTouTiaoDiDiCPCPageHandler),
+    (r"/activity/(quttddcpc[1-3])", channel.duiba.QuTouTiaoDiDiCPCPageHandler),
     (r"/activity/qttmtcpc1", channel.didi.QuTouTiaoMeiTuanPageHandler),
+    (r"/activity/quttdk1", channel.iqiyi.QuTouTiaoDaiKuanPage1Handler),
+    (r"/activity/quttdk2", channel.iqiyi.QuTouTiaoDaiKuanPage2Handler),
+    (r"/activity/quttdk3", channel.iqiyi.QuTouTiaoDaiKuanPage3Handler),
+    # 速贷之家
+    (r"/activity/sudaizjdk1", channel.bianxianmao.SuDaiZhiJiaDaiKuanPageHandler),
+    # 指尖
+    (r"/activity/zjyystk1", channel.taikang.ZhiJianYunYingShangTaiKangPageHander),
 
     # 大众试驾
     (r"/appointment/volkswagen", channel.appointment.AppointmentVolkswagen),
@@ -581,9 +601,9 @@ HANDLERS= [
     (r"/activity/duibadd_fif", channel.duiba.SubstituteDuiBaPageHandler15),
     (r"/activity/duibaddcpc1", channel.duiba.DuiBaDiDiTestClick1PageHandler),
     (r"/activity/duibaddcpc2", channel.duiba.DuiBaDiDiTestClick2PageHandler),
-    (r"/activity/duibaddcpc3", channel.duiba.DuiBaDiDiTestClick3PageHandler),
-    (r"/activity/duibaddcpc4", channel.duiba.DuiBaDiDiTestClick4PageHandler),
-    (r"/activity/duibaddcpc5", channel.duiba.DuiBaDiDiTestClick5PageHandler),
+    (r"/activity/(duibaddcpc3|duibaddapi3)", channel.duiba.DuiBaDiDiTestClick3PageHandler),
+    (r"/activity/(duibaddcpc4|duibaddapi4)", channel.duiba.DuiBaDiDiTestClick4PageHandler),
+    (r"/activity/(duibaddcpc5|duibaddapi5)", channel.duiba.DuiBaDiDiTestClick5PageHandler),
     (r"/activity/duibaddcpc6", channel.duiba.DuiBaDiDiTestClick6PageHandler),
     (r"/activity/duibaddcpc7", channel.duiba.DuiBaDiDiTestClick7PageHandler),
     (r"/activity/duibaddcpc8", channel.duiba.DuiBaDiDiTestClick8PageHandler),
@@ -619,6 +639,10 @@ HANDLERS= [
     (r"/activity/duibapaxykcpc2", channel.pingan.DuiBaPinganXinYongKaCPC2PageHandler),
     (r"/activity/duibatpcpc1", channel.duiba.DuiBaTaiPingCPCPageHandler),
     (r"/activity/duibahkjcpc1", channel.duiba.DuiBaHuanKuanJinPageHander),
+    # 巨掌互动
+    (r"/activity/juzdd1", channel.duiba.JuZhangHuDongDiDiPageHandler),
+    (r"/activity/juzmt1", channel.bianxianmao.JuZhangHuDongMeiTuanPageHandler),
+
     # 顺网小说
     (r"/activity/shunwxs45hkj1", channel.taikang.ShunWangXiaoShuoPageHander),
     (r"/activity/shunwxstk1", channel.taikang.ShunWangXiaoShuoShuXinKaPageHander),
@@ -698,6 +722,10 @@ HANDLERS= [
     # 木仓科技
     (r"/activity/jkbdpa1", channel.channel_no_idno.JiaKaoBaoDianPageHandler),
     (r"/activity/jkbdmt1", channel.duiba.MuCangDiDiPageHandler),
+    # 美正高铁WIFI
+    (r"/activity/mzwifipa1", channel.channel_no_idno.MeiZhengWifiPinAnPageHandler),
+    (r"/activity/mzwifimt1", channel.duiba.MeiZhengWifiMeiTuanPageHandler),
+    (r"/activity/mzwifibn1", channel.bainian.MeiZhengWifiBaiNianPageHandler),
 
     # 没有输入身份证号的渠道
     (r"/activity/txgtdd2_noid", channel.channel_no_idno.SurveyTieXiPageHandler),
@@ -928,7 +956,7 @@ HANDLERS= [
 
     # 推啊 使用蘑菇保域名
     (r"/activity_mgb/tuiahkjcpc1", channel.tuia.TuiaHuanKuanJinPageHander),
-    (r"/activity_mgb/tuiaddcpc1", channel.tuia.TuiADiDiTestClick1PageHandler_MGB),
+    (r"/activity_mgb/(tuiaddcpc1|tuiaddapi1)", channel.tuia.TuiADiDiTestClick1PageHandler_MGB),
     (r"/activity_mgb/tuiaddcpc2", channel.tuia.TuiADiDiTestClick2PageHandler_MGB),
     (r"/activity_mgb/(tuiaddcpc[34])", channel.tuia.TuiADiDiTestClick3PageHandler_MGB),
     (r"/activity_mgb/(tuiady(?:2|3|))", channel.tuia.TuiAPingAnDiaoYanPageHandler),
@@ -937,7 +965,8 @@ HANDLERS= [
     (r"/activity_mgb/tuiaqm", channel.tuia.TuiAZhonghePageHandler),
     (r"/activity_mgb/tuiaddcpcnew1", channel.bianxianmao.TuiaDiDiDiCPCNew1PageHandler),
     (r"/activity_mgb/tuiameituan1", channel.tuia.TuiAMeiTuanTaiKangPageHandler),
-    (r"/activity_mgb/tuiameituan2", channel.tuia.TuiAMeiTuan2PageHandler),
+    (r"/activity_mgb/(tuiameituan2|tuiamtapi2)", channel.tuia.TuiAMeiTuan2PageHandler),
+    (r"/activity_mgb/tuiabncpc1", channel.bainian.TuiABaiNianPageHandler),
 
     # 宇闻平安新页面 使用蘑菇保域名
     (r"/activity_mgb/ywpa1", channel.channel_no_idno.PinganYuWenPageHandler),
@@ -1033,9 +1062,11 @@ HANDLERS= [
     # (r"/activity/bxmloanddh1", channel.daduhui.YuWenDaDuHui3PageHandler),
     (r"/activity/bxmloanhz1", channel.bianxianmao.BianXianMaoLoanHeZhongPage1Handler),
     (r"/activity/bxmloanpa1", channel.bianxianmao.BianXianMaoLoanPingAnPage1Handler),
-    (r"/activity/bxmddcpc1", channel.bianxianmao.BianXianMaoDiDiCPC1Page1Handler),
+    (r"/activity/(bxmddcpc[1-2])", channel.bianxianmao.BianXianMaoDiDiCPC1Page1Handler),
     (r"/activity/bxmtkcpc1", channel.bianxianmao.BianXianMaoTaiKangCPC1Page1Handler),
     (r"/activity/bxmmt1", channel.bianxianmao.BianXianMaoMeiTuanPageHandler),
+    (r"/activity/(bxmmtcpc[1-2])", channel.bianxianmao.BianXianMaoMeiTuanCPCPageHandler),
+    (r"/activity/bxmhkjcpc1", channel.bianxianmao.BianXianMaoHuanKuanJinPageHander),
 
     # 变现猫转盘综合链接
     (r"/activity/bxmzpzh1", channel.bianxianmao.BianXianMaoZhuanPanPageHandler),
@@ -1054,7 +1085,9 @@ HANDLERS= [
     (r"/activity/appoinment_taikang", channel.calculate_taikang.AppointmentTaiKang),
     # 推吧
     (r"/activity/tuibaddcpc1", channel.duiba.TuiBaDiDiCPCPageHandler),
-    (r"/activity/(tuibadd[2-5])", channel.duiba.TuiBaDiDiCPCPage2Handler),
+    (r"/activity/(tuibamtcpc[1-3])", channel.bianxianmao.TuiBaMeiTuanCPCPageHandler),
+    (r"/activity/(tuibadd[2-9])", channel.duiba.TuiBaDiDiCPCPage2Handler),
+    (r"/activity/(tuibadd10)", channel.duiba.TuiBaDiDiCPCPage2Handler),
 
     # 发送短信提醒
     (r"/sms/remind", insurance.handlers.insurance_remind.InsuranceExpireRemindHandler),
@@ -1081,6 +1114,7 @@ HANDLERS= [
     (r"/activity/mmaqy1", channel.iqiyi.MMIQiYiPageHandler),
     (r"/activity/pawifiaqy1", channel.iqiyi.PAWIFIQiYiPageHandler),
     (r"/activity/aqyddcpc_page1", channel.duiba.AiQiYiDiDiCPCPageHandler),
+    # (r"/activity/aqyddcpc1", channel.duiba.AiQiYiDiDiCPCPageHandler),
     (r"/activity/aqydkcpc1", channel.iqiyi.AiQiYiDaiKuanCPCPageHandler),
     (r"/activity/aqytkcpc1", channel.taikang.AiQiYiTaiKangPageHander),
     (r"/activity/aqymtcpc1", channel.didi.AiQiYiMeiTuanPageHandler),
@@ -1204,6 +1238,7 @@ HANDLERS= [
     (r"/activity/wcpae4", channel.e_bank.WaCai4EBankPageHandler),
     (r"/activity/wcpae5", channel.e_bank.WaCai5EBankPageHandler),
     (r"/activity/wacxyktk1", channel.taikang.WaCaiXinYongKaTaiKangPageHander),
+    (r"/activity/(wacaichuxing[1-5])", channel.taikang.WaCaiChuXingPageHander),
 
     # 智汇推
     (r"/activity/zhtdc1", channel.pingan.PinganZhiHuiTuiDiaoCha1PageHandler),
@@ -1216,7 +1251,8 @@ HANDLERS= [
     # 信用钱包
     (r"/activity/xyqbpae1", channel.e_bank.XinYongQianBaoPaePageHandler),
     (r"/activity/xyqbzh1", channel.zonghe.XinYongQianBaoZonghePageHandler),
-    (r"/activity/xinyqb1", channel.xyqianbao.XinYongQianBaoPageHandler),
+    (r"/activity/xinyqb2", channel.xyqianbao.XinYongQianBaoPageHandler),
+    (r"/activity/xinyqb1", channel.daikuan.XinYongQianBaoDaiKuanPageHandler),
     (r"/xinyong/count", channel.xyqianbao.CounterClickHandler),
 
     # 简单借款
@@ -1234,9 +1270,11 @@ HANDLERS= [
     (r"/activity/fcyhkj1", channel.taikang.FengChaoYunHuanKuanJinPageHander),
     (r"/activity/fcymt1", channel.didi.FengChaoYunMeiTuanPageHandler),
 
-    # 百传
+    # 百传 百川
     (r"/activity/bcdd1", channel.didi.BaiChuanDidiPageHandler),
     (r"/activity/bcqq1", channel.qq.BaiChuanQQPageHandler),
+    (r"/activity/bcddcpa1", channel.duiba.BaiChuanDiDiPageHandler),
+    (r"/activity/bcmtcpa1", channel.didi.BaiChuanMeiTuanPageHandler),
 
     # 泊安
     (r"/activity/gybazh1", channel.zonghe.BoAnZongHe1PageHandler),
@@ -1445,6 +1483,8 @@ HANDLERS= [
 
     # 百年新页面
     (r"/activity/hnbn", channel.bainian.HeiNiuBaiNianPageHandler),
+    # 百年人寿安顺宝
+    (r"/activity/hnbnnew1", channel.bainian.HeiNiuBaiNianNewPageHandler),
 
     # 快递100
     (r"/activity/(kd[1-2])", channel.zonghe.KuaiDi100ZongHePageHandler),
@@ -1574,6 +1614,7 @@ HANDLERS= [
     (r"/activity/lhdkcpc1", channel.daikuan.LeHuiDaiKuanCPCPageHandler),
     (r"/activity/lhddcpc1", channel.duiba.LeHuiDiDiCPCPageHandler),
     (r"/activity/lhmtcpc1", channel.didi.LeHuiMeiTuanCPC1TaiKangPageHandler),
+    (r"/activity/lhrscpc1", channel.duiba.LeHuiZhongGuoRenShouPageHandler),
     # 享多多贷款
     (r"/activity/xiangduoduodk1", channel.daikuan.XiangDuoDuoDaiKuanPageHandler),
     # 享多多
@@ -1591,6 +1632,11 @@ HANDLERS= [
     # 黑牛平安
     (r"/activity/(hndaikuanPA[1-5])", channel.daikuan.HeiNiuDaiKuanPAPageHandler),
 
+    # 上海数因贷款审核页
+    (r"/activity/shsydk1", channel.daikuan.ShangHaiShuYinDaiKuanPageHandler),
+
+    # 黑牛有钱短信推广页
+    (r"/activity/hndksms1", channel.daikuan.HeiNiuYouQianSendMessagePageHandler),
 
     # 新版黑牛有钱
     (r"/activity/heiniuyouqian1", channel.daikuan.HeiNiuYouQianPageHandler),
@@ -1604,8 +1650,16 @@ HANDLERS= [
     (r"/activity/hnyouqianend3", channel.daikuan3.HeiNiuYouQianRecommendPageHandler),
     (r"/activity/hnyouqianclick3", channel.daikuan3.HeiNiuYouQianClickPageHandler),
     (r"/activity/hnyouqiancron3", channel.daikuan3.HeiNiuYouQianCronPageHandler),
-    
-    #阳光贷款页面做展示用
+
+    # 备案用的黑牛链接
+    (r"/activity/hndk3", channel.daikuan3.HeiNiuYouQianIndexPageHandler),
+    (r"/activity/hnpae1", channel.e_bank.HeiniuPae1PageHandler),
+    (r"/activity/hnddcpc1", channel.duiba.HeiniuDiDiTestClick1PageHandler),
+    (r"/activity/hnchuxing1", channel.zonghe.HeiniuChuXingPageHandler),
+    (r"/activity/hndiaoyan1", channel.pingan_wifi.HeiNiuPingAnDiaoYanPageHandler),
+    (r"/activity/hnpalt1", channel.pingan.HeiNiuPingAnFuLiHuiPageHandler),
+
+    # 阳光贷款页面做展示用
     (r"/activity/ygdaikuan1", channel.daikuan.YangGuangDaiKuanPageHandler),
 
     # 一只大鱼
@@ -1672,6 +1726,9 @@ HANDLERS= [
     (r"/activity/wanhyoub1", channel.pingan_wifi.WanHeYouBaiDanChePageHandler),
     # 万合酷骑单车
     (r"/activity/wanhkqgq1", channel.taikang.WanHeKuQiDanCheGuoQingPageHander),
+    # 精真估
+    (r"/activity/jingzgchuxing1", channel.taikang.JingZhenGuChuXingPageHander),
+
     # 乐投壹佰
     (r"/activity/letou1001", channel.taikang.LeTouYiBaiChuXingPageHander),
 
@@ -1696,11 +1753,15 @@ HANDLERS= [
 
     # 窝窝支付
     (r"/activity/wowzfxinj1", channel.taikang.WoWoZhiFuHuanKuanJinPageHander),
-    (r"/activity/wowzfmt1", channel.didi.WoWoZhiFuMeiTuanPageHandler),
+    (r"/activity/(wowzfmt[1-2])", channel.didi.WoWoZhiFuMeiTuanPageHandler),
     (r"/activity/go_wowo_heika", channel.redirect.GoToWoWoHeiKaPageHandler),
     (r"/activity/wowzfcpczfb1", channel.didi.WoWoZhiFuCPCZhiFuBaoPageHandler),
+    (r"/activity/wowzfcpczfb2", channel.didi.WoWoZhiFuCPCZhiFuBaoPage2Handler),
+    (r"/activity/wowzfcpcwx1", channel.didi.WoWoZhiFuCPCWeiXinPageHandler),
     (r"/activity/wowzfcpcdd1", channel.duiba.WoWoZhiFuDiDiCPCPageHandler),
     (r"/activity/wowdk1", channel.daikuan.WoWoZhiFuDaiKuanPageHandler),
+    (r"/activity/(wowozfbn[1-2])", channel.bainian.WoWoZhiFuBaiNianPageHandler),
+
     # 考拉先生
     (r"/activity/kaolcpcmt1", channel.didi.KaoLaXianShengMeiTuanPageHandler),
 
@@ -1720,6 +1781,8 @@ HANDLERS= [
     (r"/activity/taipingddcpc1", channel.duiba.TaiPingDiDiCPCPageHandler),
     (r"/activity/taipingcpc1", channel.duiba.TaiPingNoDiDiPageHandler),
     (r"/activity/hnzgrs1", channel.duiba.ZhongGuoRenShouBPageHandler),
+    (r"/activity/hnzgrsnew1", channel.duiba.HeiNiuZhongGuoRenShouNewPageHandler),
+    (r"/activity/ceshimt1", channel.didi.MeiTuanCeShiPageHandler),
 
     # 信用卡还款金活动
     (r"/activity/xykhkj1", channel.taikang.XinYongKaHuanKuanJinPageHander),
@@ -1743,7 +1806,7 @@ HANDLERS= [
     (r"/api/partner_extend_stat", insurance.out_api.partner_stat.views.PartnerStatExtendHandler),
     (r"/api/partner_extend_stat2", insurance.out_api.partner_stat.views.PartnerStatExtend2Handler),
     (r"/api/partner_current_stat", insurance.out_api.partner_stat.views.PartnerStatCurrentHandler),
-    (r"/api/real_time_stat", insurance.out_api.real_time_stat.views.RealTimeStatCurrentHandler),
+    # (r"/api/real_time_stat/new", insurance.out_api.real_time_stat.views.RealTimeStatCurrentHandler),
     (r"/api/hnyq_stat", insurance.out_api.market_stat.current.HeiNiuYouQianInsuranceHandler),
     (r"/api/loan/baixing/mobile", insurance.out_api.baixing.views.BaixingMobileFetcherHandler),
     (r"/api/loan/baixing/confirmation", insurance.out_api.baixing.views.BaixingConfirmationHandler),
@@ -1786,10 +1849,14 @@ HANDLERS= [
     (r"/activity/tiantianaicaipiao_trans1", channel.redirect.TianTianAiCaiPiaoTransPageHandler),
     (r"/activity/tiantianaicaipiao_trans2", channel.redirect.TianTianAiCaiPiaoTransLJPageHandler),
     (r"/activity/tiantianaicaipiao_trans4", channel.redirect.TianTianAiCaiPiaoTransHTLJPageHandler),
+
     (r"/activity/tiantianaicaipiao_bxm_trans1", channel.redirect.TianTianAiCaiPiaoTransBXMPageHandler),
+
+    (r"/activity/tiantianaicaipiao_ajzc_trans1", channel.redirect.TianTianAiCaiPiaoTransAJZCPageHandler),
 
     (r"/activity/kuaishoucaipiao_trans1", channel.redirect.KuaiShouCaiPiaoTransPageHandler),
     (r"/activity/kuaishoucaipiao_trans2", channel.redirect.KuaiShouCaiPiaoTrans2PageHandler),
+    (r"/activity/kuaishoucaipiao_trans3", channel.redirect.KuaiShouCaiPiaoTrans3PageHandler),
 
     (r"/activity/download_trans", channel.redirect.DownloadTransPageHandler),
     (r"/activity/download_trans_rrzcp", channel.redirect.RenRenZhongCaiPiaoDownloadTransPageHandler),
@@ -1824,6 +1891,7 @@ HANDLERS= [
     (r"/activity/goheika7", channel.redirect.GoToHeika7PageHandler),
     (r"/activity/goheika_wowo1", channel.redirect.GoToHeikaWoWoPageHandler),
     (r"/activity/goheika_51flw1", channel.redirect.GoToWoWoHeiKaPageHandler),
+    (r"/activity/go_heika_sms1", channel.redirect.GoToHeiKaSMSPageHandler),
     (r"/activity/go_heika_CPA1", channel.redirect.GoToHeikaCPAPageHandler),
     (r"/activity/gosudaizhijia1", channel.redirect.GoToSuDaiZhiJiaPageHandler),
     (r"/activity/goqianguanzi1", channel.redirect.GoToQianGuanZiPageHandler),
@@ -1947,6 +2015,7 @@ HANDLERS= [
     (r"/activity/go_kaniu1", channel.redirect.GoToKaNiuPageHandler),
     (r"/activity/go_jiekuanzhuanjia1", channel.redirect.GoToJieKuanZhuanJiaPageHandler),
     (r"/activity/go_yinghuangyule1", channel.redirect.GoToYingHuangYuLePageHandler),
+    (r"/activity/go_yinghuangyule_ios1", channel.redirect.GoToYingHuangYuLePageHandler),
     (r"/activity/go_360daikuan1", channel.redirect.GoTo360DaiKuanPageHandler),
     (r"/activity/go_51xinyongkaguanjia1", channel.redirect.GoTo51XinYongKaGuanJiaPageHandler),
     (r"/activity/go_51xinyongkaguanjia2", channel.redirect.GoTo51XinYongKaGuanJia2PageHandler),
@@ -1995,6 +2064,8 @@ HANDLERS= [
     (r"/activity/go_tiantianaicaipiao_ios_ht1", channel.redirect.GoToTianTianAiCaiPiaoIOSHuiTuiPageHandler),
     (r"/activity/go_tiantianaicaipiao_bxm1", channel.redirect.GoToTianTianAiCaiPiaoBXMPageHandler),
     (r"/activity/go_tiantianaicaipiao_ios_bxm1", channel.redirect.GoToTianTianAiCaiPiaoIOSBXMPageHandler),
+    (r"/activity/go_tiantianaicaipiao_ajzc1", channel.redirect.GoToTianTianAiCaiPiaoAJZCPageHandler),
+    (r"/activity/go_tiantianaicaipiao_ios_ajzc1", channel.redirect.GoToTianTianAiCaiPiaoIOSAJZCPageHandler),
     (r"/activity/go_domwatch_f1", channel.redirect.GoToDomWatchFPageHandler),
     (r"/activity/go_domwatch_m1", channel.redirect.GoToDomWatchMPageHandler),
     (r"/activity/go_lingketixudao1", channel.redirect.GoToLingKeTiXuDaoageHandler),
@@ -2006,6 +2077,8 @@ HANDLERS= [
     (r"/activity/go_laobanzhang1", channel.redirect.GoToLaoBanZhangPageHandler),
     (r"/activity/go_fanliwang2", channel.redirect.GoToFanLiWang2PageHandler),
     (r"/activity/go_hnpos1", channel.redirect.GoToHeiNiuPosPageHandler),
+    (r"/activity/go_hnpos1_2", channel.redirect.GoToHeiNiuPos1_2PageHandler),
+    (r"/activity/go_hnpos1_3", channel.redirect.GoToHeiNiuPos1_3PageHandler),
     (r"/activity/go_tianmao1", channel.redirect.GoToTianMaoPageHandler),
     (r"/activity/go_youjie1", channel.redirect.GoToYouJiePageHandler),
     (r"/activity/go_youjie2", channel.redirect.GoToYouJie2PageHandler),
@@ -2019,6 +2092,7 @@ HANDLERS= [
     (r"/activity/go_baoxinishoubiao_ht3", channel.redirect.GoToBaoXiNiShouBiaoHT3PageHandler),
     (r"/activity/go_baoxinishoubiao_wowo1", channel.redirect.GoToBaoXiNiShouBiaoWoWoPageHandler),
     (r"/activity/go_baoxinishoubiao_lunbo2", channel.redirect.GoToBaoXiNiShouBiaoLunBoPageHandler),
+    (r"/activity/go_baoxinishoubiao_new3", channel.redirect.GoToBaoXiNiShouBiaoNewRedPacketPageHandler),
     (r"/activity/go_yuenanshajin1", channel.redirect.GoToYueNanShaJinPageHandler),
     (r"/activity/go_dianwancheng1", channel.redirect.GoToDianWanChengPageHandler),
     (r"/activity/go_dianwancheng_h5", channel.redirect.GoToDianWanChengH5PageHandler),
@@ -2032,6 +2106,7 @@ HANDLERS= [
     (r"/activity/go_hualebei1", channel.redirect.GoToHuaLeBeiPageHandler),
     (r"/activity/go_kuaishoucaipiao1", channel.redirect.GoToKuaiShouCaiPiaoPageHandler),
     (r"/activity/go_kuaishoucaipiao2", channel.redirect.GoToKuaiShouCaiPiao2PageHandler),
+    (r"/activity/go_kuaishoucaipiao3", channel.redirect.GoToKuaiShouCaiPiao3PageHandler),
     (r"/activity/go_baiyingqipai1", channel.redirect.GoToBaiYingQiPaiPageHandler),
     (r"/activity/go_falaidihongjiu1", channel.redirect.GoToFaLaiDiHongJiuPageHandler),
     (r"/activity/go_kuaishan1", channel.redirect.GoToKuaiShanPageHandler),
@@ -2083,6 +2158,7 @@ HANDLERS= [
     (r"/activity/go_cixuanfu1", channel.redirect.GoToCiXuanFuPageHandler),
     (r"/activity/go_ajiejianfei1", channel.redirect.GoToAJieJianFeiPageHandler),
     (r"/activity/go_weilan3", channel.redirect.GoToWeiLanQiPai3PageHandler),
+    (r"/activity/go_weilan_ios3", channel.redirect.GoToWeiLanQiPai3IOSPageHandler),
     (r"/activity/go_daguangzongwangzhuan1", channel.redirect.GoToDaGuangZongWangZhuanPageHandler),
     (r"/activity/go_zhangshangaomen1", channel.redirect.GoToZhangShangAoMenPageHandler),
     (r"/activity/go_wangzhechuanqi1", channel.redirect.GoToWangZheChuanQiPageHandler),
@@ -2099,6 +2175,27 @@ HANDLERS= [
     (r"/activity/go_mamabang1", channel.redirect.GoToMaMaBangPageHandler),
     (r"/activity/go_youhaoya1", channel.redirect.GoToYouHaoYaPageHandler),
     (r"/activity/go_yunhaoqipai1", channel.redirect.GoToYunHaoQiPaiPageHandler),
+    (r"/activity/go_yunhaoqipai_ios1", channel.redirect.GoToYunHaoQiPaiIOSPageHandler),
+    (r"/activity/go_hnweisikai1", channel.redirect.GoToHeiNiuWeiSiKaiPageHandler),
+    (r"/activity/go_qingsongzhuan1", channel.redirect.GoToQingSongZhuanPageHandler),
+    (r"/activity/go_meiriyouxian1", channel.redirect.GoToMeiRiYouXianPageHandler),
+    (r"/activity/go_meiriyouxian2", channel.redirect.GoToMeiRiYouXian2PageHandler),
+    (r"/activity/go_fuquan1", channel.redirect.GoToFuQuanPageHandler),
+    (r"/activity/go_erji1", channel.redirect.GoToErJiPageHandler),
+    (r"/activity/go_qingnianheika1", channel.redirect.GoToQingNianHeiKaPageHandler),
+    (r"/activity/go_feiketixudao1", channel.redirect.GoToFeiKeTiXuDaoPageHandler),
+    (r"/activity/go_sanheyitixudao1", channel.redirect.GoToSanHeYiTiXuDaoPageHandler),
+    (r"/activity/go_jiezhi1", channel.redirect.GoToJieZhiPageHandler),
+    (r"/activity/go_weiku1", channel.redirect.GoToWeiKuPageHandler),
+    (r"/activity/go_lakala1", channel.redirect.GoToLaKaLaPageHandler),
+    (r"/activity/go_hujiangwangxiao1", channel.redirect.GoToHuJiangWangXiaoPageHandler),
+    (r"/activity/go_dawangka1", channel.redirect.GoToDaWangKaPageHandler),
+    (r"/activity/go_yingyingcaipiao1", channel.redirect.GoToYingYingCaiPiaoPageHandler),
+    (r"/activity/go_shengxiaoyu1", channel.redirect.GoToShengXiaoYuPageHandler),
+    (r"/activity/go_sijiantao1", channel.redirect.GoToSiJianTaoPageHandler),
+    (r"/activity/go_laokqipai1", channel.redirect.GoToLaoKQiPaiPageHandler),
+    (r"/activity/go_jiaonizhuan1", channel.redirect.GoToJiaoNiZhuanPageHandler),
+    (r"/activity/go_guibinyuanjiang1", channel.redirect.GoToGuiBinYuanJiangPageHandler),
 
     # 抽奖
     (r"/activity/get_frequency", channel.redirect.GetFrequencyHandler),
@@ -2139,6 +2236,7 @@ HANDLERS= [
 
     (r"/activity_mgb/kuaishoucaipiao_trans1", channel.redirect.KuaiShouCaiPiaoTransPageHandler_MGB),
     (r"/activity_mgb/kuaishoucaipiao_trans2", channel.redirect.KuaiShouCaiPiaoTrans2PageHandler_MGB),
+    (r"/activity_mgb/kuaishoucaipiao_trans3", channel.redirect.KuaiShouCaiPiaoTrans3PageHandler_MGB),
 
     (r"/activity_mgb/download_trans", channel.redirect.DownloadTransPageHandler_MGB),
     (r"/activity_mgb/download_trans_rrzcp", channel.redirect.RenRenZhongCaiPiaoDownloadTransPageHandler),
@@ -2284,6 +2382,7 @@ HANDLERS= [
     (r"/activity_mgb/go_kaniu1", channel.redirect.GoToKaNiuPageHandler),
     (r"/activity_mgb/go_jiekuanzhuanjia1", channel.redirect.GoToJieKuanZhuanJiaPageHandler),
     (r"/activity_mgb/go_yinghuangyule1", channel.redirect.GoToYingHuangYuLePageHandler),
+    (r"/activity_mgb/go_yinghuangyule_ios1", channel.redirect.GoToYingHuangYuLePageHandler),
     (r"/activity_mgb/go_360daikuan1", channel.redirect.GoTo360DaiKuanPageHandler),
     (r"/activity_mgb/go_51xinyongkaguanjia1", channel.redirect.GoTo51XinYongKaGuanJiaPageHandler),
     (r"/activity_mgb/go_51xinyongkaguanjia2", channel.redirect.GoTo51XinYongKaGuanJia2PageHandler),
@@ -2340,6 +2439,8 @@ HANDLERS= [
     (r"/activity_mgb/go_laobanzhang1", channel.redirect.GoToLaoBanZhangPageHandler),
     (r"/activity_mgb/go_fanliwang2", channel.redirect.GoToFanLiWang2PageHandler),
     (r"/activity_mgb/go_hnpos1", channel.redirect.GoToHeiNiuPosPageHandler),
+    (r"/activity_mgb/go_hnpos1_2", channel.redirect.GoToHeiNiuPos1_2PageHandler),
+    (r"/activity_mgb/go_hnpos1_3", channel.redirect.GoToHeiNiuPos1_3PageHandler),
     (r"/activity_mgb/go_tianmao1", channel.redirect.GoToTianMaoPageHandler),
     (r"/activity_mgb/go_youjie1", channel.redirect.GoToYouJiePageHandler),
     (r"/activity_mgb/go_youjie2", channel.redirect.GoToYouJie2PageHandler),
@@ -2353,6 +2454,7 @@ HANDLERS= [
     (r"/activity_mgb/go_baoxinishoubiao_ht3", channel.redirect.GoToBaoXiNiShouBiaoHT3PageHandler),
     (r"/activity_mgb/go_baoxinishoubiao_wowo1", channel.redirect.GoToBaoXiNiShouBiaoWoWoPageHandler),
     (r"/activity_mgb/go_baoxinishoubiao_lunbo2", channel.redirect.GoToBaoXiNiShouBiaoLunBoPageHandler),
+    (r"/activity_mgb/go_baoxinishoubiao_new3", channel.redirect.GoToBaoXiNiShouBiaoNewRedPacketPageHandler),
     (r"/activity_mgb/go_yuenanshajin1", channel.redirect.GoToYueNanShaJinPageHandler),
     (r"/activity_mgb/go_dianwancheng1", channel.redirect.GoToDianWanChengPageHandler),
     (r"/activity_mgb/go_dianwancheng_h5", channel.redirect.GoToDianWanChengH5PageHandler),
@@ -2366,6 +2468,7 @@ HANDLERS= [
     (r"/activity_mgb/go_hualebei1", channel.redirect.GoToHuaLeBeiPageHandler),
     (r"/activity_mgb/go_kuaishoucaipiao1", channel.redirect.GoToKuaiShouCaiPiaoPageHandler),
     (r"/activity_mgb/go_kuaishoucaipiao2", channel.redirect.GoToKuaiShouCaiPiao2PageHandler),
+    (r"/activity_mgb/go_kuaishoucaipiao3", channel.redirect.GoToKuaiShouCaiPiao3PageHandler),
     (r"/activity_mgb/go_baiyingqipai1", channel.redirect.GoToBaiYingQiPaiPageHandler),
     (r"/activity_mgb/go_falaidihongjiu1", channel.redirect.GoToFaLaiDiHongJiuPageHandler),
     (r"/activity_mgb/go_kuaishan1", channel.redirect.GoToKuaiShanPageHandler),
@@ -2417,6 +2520,7 @@ HANDLERS= [
     (r"/activity_mgb/go_cixuanfu1", channel.redirect.GoToCiXuanFuPageHandler),
     (r"/activity_mgb/go_ajiejianfei1", channel.redirect.GoToAJieJianFeiPageHandler),
     (r"/activity_mgb/go_weilan3", channel.redirect.GoToWeiLanQiPai3PageHandler),
+    (r"/activity_mgb/go_weilan_ios3", channel.redirect.GoToWeiLanQiPai3IOSPageHandler),
     (r"/activity_mgb/go_daguangzongwangzhuan1", channel.redirect.GoToDaGuangZongWangZhuanPageHandler),
     (r"/activity_mgb/go_zhangshangaomen1", channel.redirect.GoToZhangShangAoMenPageHandler),
     (r"/activity_mgb/go_wangzhechuanqi1", channel.redirect.GoToWangZheChuanQiPageHandler),
@@ -2433,6 +2537,27 @@ HANDLERS= [
     (r"/activity_mgb/go_mamabang1", channel.redirect.GoToMaMaBangPageHandler),
     (r"/activity_mgb/go_youhaoya1", channel.redirect.GoToYouHaoYaPageHandler),
     (r"/activity_mgb/go_yunhaoqipai1", channel.redirect.GoToYunHaoQiPaiPageHandler),
+    (r"/activity_mgb/go_yunhaoqipai_ios1", channel.redirect.GoToYunHaoQiPaiIOSPageHandler),
+    (r"/activity_mgb/go_hnweisikai1", channel.redirect.GoToHeiNiuWeiSiKaiPageHandler),
+    (r"/activity_mgb/go_qingsongzhuan1", channel.redirect.GoToQingSongZhuanPageHandler),
+    (r"/activity_mgb/go_meiriyouxian1", channel.redirect.GoToMeiRiYouXianPageHandler),
+    (r"/activity_mgb/go_meiriyouxian2", channel.redirect.GoToMeiRiYouXian2PageHandler),
+    (r"/activity_mgb/go_fuquan1", channel.redirect.GoToFuQuanPageHandler),
+    (r"/activity_mgb/go_erji1", channel.redirect.GoToErJiPageHandler),
+    (r"/activity_mgb/go_qingnianheika1", channel.redirect.GoToQingNianHeiKaPageHandler),
+    (r"/activity_mgb/go_feiketixudao1", channel.redirect.GoToFeiKeTiXuDaoPageHandler),
+    (r"/activity_mgb/go_sanheyitixudao1", channel.redirect.GoToSanHeYiTiXuDaoPageHandler),
+    (r"/activity_mgb/go_jiezhi1", channel.redirect.GoToJieZhiPageHandler),
+    (r"/activity_mgb/go_weiku1", channel.redirect.GoToWeiKuPageHandler),
+    (r"/activity_mgb/go_lakala1", channel.redirect.GoToLaKaLaPageHandler),
+    (r"/activity_mgb/go_hujiangwangxiao1", channel.redirect.GoToHuJiangWangXiaoPageHandler),
+    (r"/activity_mgb/go_dawangka1", channel.redirect.GoToDaWangKaPageHandler),
+    (r"/activity_mgb/go_yingyingcaipiao1", channel.redirect.GoToYingYingCaiPiaoPageHandler),
+    (r"/activity_mgb/go_shengxiaoyu1", channel.redirect.GoToShengXiaoYuPageHandler),
+    (r"/activity_mgb/go_sijiantao1", channel.redirect.GoToSiJianTaoPageHandler),
+    (r"/activity_mgb/go_laokqipai1", channel.redirect.GoToLaoKQiPaiPageHandler),
+    (r"/activity_mgb/go_jiaonizhuan1", channel.redirect.GoToJiaoNiZhuanPageHandler),
+    (r"/activity_mgb/go_guibinyuanjiang1", channel.redirect.GoToGuiBinYuanJiangPageHandler),
 
     # 蘑菇保抽奖
     (r"/activity_mgb/get_frequency", channel.redirect.GetFrequencyHandler),
@@ -2604,6 +2729,7 @@ HANDLERS= [
     (r"/activity/prize_go_kaniu1", channel.redirect.GoToKaNiuPageHandler),
     (r"/activity/prize_go_jiekuanzhuanjia1", channel.redirect.GoToJieKuanZhuanJiaPageHandler),
     (r"/activity/prize_go_yinghuangyule1", channel.redirect.GoToYingHuangYuLePageHandler),
+    (r"/activity/prize_go_yinghuangyule_ios1", channel.redirect.GoToYingHuangYuLePageHandler),
     (r"/activity/prize_go_360daikuan1", channel.redirect.GoTo360DaiKuanPageHandler),
     (r"/activity/prize_go_51xinyongkaguanjia1", channel.redirect.GoTo51XinYongKaGuanJiaPageHandler),
     (r"/activity/prize_go_51xinyongkaguanjia2", channel.redirect.GoTo51XinYongKaGuanJia2PageHandler),
@@ -2660,6 +2786,8 @@ HANDLERS= [
     (r"/activity/prize_go_laobanzhang1", channel.redirect.GoToLaoBanZhangPageHandler),
     (r"/activity/prize_go_fanliwang2", channel.redirect.GoToFanLiWang2PageHandler),
     (r"/activity/prize_go_hnpos1", channel.redirect.GoToHeiNiuPosPageHandler),
+    (r"/activity/prize_go_hnpos1_2", channel.redirect.GoToHeiNiuPos1_2PageHandler),
+    (r"/activity/prize_go_hnpos1_3", channel.redirect.GoToHeiNiuPos1_3PageHandler),
     (r"/activity/prize_go_tianmao1", channel.redirect.GoToTianMaoPageHandler),
     (r"/activity/prize_go_youjie1", channel.redirect.GoToYouJiePageHandler),
     (r"/activity/prize_go_youjie2", channel.redirect.GoToYouJie2PageHandler),
@@ -2673,6 +2801,7 @@ HANDLERS= [
     (r"/activity/prize_go_baoxinishoubiao_ht3", channel.redirect.GoToBaoXiNiShouBiaoHT3PageHandler),
     (r"/activity/prize_go_baoxinishoubiao_wowo1", channel.redirect.GoToBaoXiNiShouBiaoWoWoPageHandler),
     (r"/activity/prize_go_baoxinishoubiao_lunbo2", channel.redirect.GoToBaoXiNiShouBiaoLunBoPageHandler),
+    (r"/activity/prize_go_baoxinishoubiao_new3", channel.redirect.GoToBaoXiNiShouBiaoNewRedPacketPageHandler),
     (r"/activity/prize_go_yuenanshajin1", channel.redirect.GoToYueNanShaJinPageHandler),
     (r"/activity/prize_go_dianwancheng1", channel.redirect.GoToDianWanChengPageHandler),
     (r"/activity/prize_go_dianwancheng_h5", channel.redirect.GoToDianWanChengH5PageHandler),
@@ -2736,6 +2865,7 @@ HANDLERS= [
     (r"/activity/prize_go_cixuanfu1", channel.redirect.GoToCiXuanFuPageHandler),
     (r"/activity/prize_go_ajiejianfei1", channel.redirect.GoToAJieJianFeiPageHandler),
     (r"/activity/prize_go_weilan3", channel.redirect.GoToWeiLanQiPai3PageHandler),
+    (r"/activity/prize_go_weilan_ios3", channel.redirect.GoToWeiLanQiPai3IOSPageHandler),
     (r"/activity/prize_go_daguangzongwangzhuan1", channel.redirect.GoToDaGuangZongWangZhuanPageHandler),
     (r"/activity/prize_go_zhangshangaomen1", channel.redirect.GoToZhangShangAoMenPageHandler),
     (r"/activity/prize_go_wangzhechuanqi1", channel.redirect.GoToWangZheChuanQiPageHandler),
@@ -2752,6 +2882,27 @@ HANDLERS= [
     (r"/activity/prize_go_mamabang1", channel.redirect.GoToMaMaBangPageHandler),
     (r"/activity/prize_go_youhaoya1", channel.redirect.GoToYouHaoYaPageHandler),
     (r"/activity/prize_go_yunhaoqipai1", channel.redirect.GoToYunHaoQiPaiPageHandler),
+    (r"/activity/prize_go_yunhaoqipai_ios1", channel.redirect.GoToYunHaoQiPaiIOSPageHandler),
+    (r"/activity/prize_go_hnweisikai1", channel.redirect.GoToHeiNiuWeiSiKaiPageHandler),
+    (r"/activity/prize_go_qingsongzhuan1", channel.redirect.GoToQingSongZhuanPageHandler),
+    (r"/activity/prize_go_meiriyouxian1", channel.redirect.GoToMeiRiYouXianPageHandler),
+    (r"/activity/prize_go_meiriyouxian2", channel.redirect.GoToMeiRiYouXian2PageHandler),
+    (r"/activity/prize_go_fuquan1", channel.redirect.GoToFuQuanPageHandler),
+    (r"/activity/prize_go_erji1", channel.redirect.GoToErJiPageHandler),
+    (r"/activity/prize_go_qingnianheika1", channel.redirect.GoToQingNianHeiKaPageHandler),
+    (r"/activity/prize_go_feiketixudao1", channel.redirect.GoToFeiKeTiXuDaoPageHandler),
+    (r"/activity/prize_go_sanheyitixudao1", channel.redirect.GoToSanHeYiTiXuDaoPageHandler),
+    (r"/activity/prize_go_jiezhi1", channel.redirect.GoToJieZhiPageHandler),
+    (r"/activity/prize_go_weiku1", channel.redirect.GoToWeiKuPageHandler),
+    (r"/activity/prize_go_lakala1", channel.redirect.GoToLaKaLaPageHandler),
+    (r"/activity/prize_go_hujiangwangxiao1", channel.redirect.GoToHuJiangWangXiaoPageHandler),
+    (r"/activity/prize_go_dawangka1", channel.redirect.GoToDaWangKaPageHandler),
+    (r"/activity/prize_go_yingyingcaipiao1", channel.redirect.GoToYingYingCaiPiaoPageHandler),
+    (r"/activity/prize_go_shengxiaoyu1", channel.redirect.GoToShengXiaoYuPageHandler),
+    (r"/activity/prize_go_sijiantao1", channel.redirect.GoToSiJianTaoPageHandler),
+    (r"/activity/prize_go_laokqipai1", channel.redirect.GoToLaoKQiPaiPageHandler),
+    (r"/activity/prize_go_jiaonizhuan1", channel.redirect.GoToJiaoNiZhuanPageHandler),
+    (r"/activity/prize_go_guibinyuanjiang1", channel.redirect.GoToGuiBinYuanJiangPageHandler),
 
     # 掌游4金贝棋牌
     (r"/activity/prize_go_zy4_jinbeiqipai_android1", channel.redirect.GoToZYJinBeiQiPaiAndroidPageHandler),
@@ -2824,7 +2975,22 @@ HANDLERS= [
     # 共享充电宝
     (r"/activity/gxcdb_prize1", channel.redirect.GongXiangChongDianBaoPrizePageHandler),
     # 爱奇艺
+    # (r"/activity/aqy_prize1", channel.redirect.AiQiYiPrizePageHandler),
     (r"/activity/aqyddcpc1", channel.redirect.AiQiYiPrizePageHandler),
+    # 搜狐
+    (r"/activity/sh_prize1", channel.redirect.SouHuPrizePageHandler),
+    # 质子贷
+    (r"/activity/zzd_prize1", channel.redirect.ZhiZiDaiPrizePageHandler),
+    # 美正高铁wifi
+    (r"/activity/mzgtwifi_prize1", channel.redirect.MeiZhengGaoTieWiFiPrizePageHandler),
+    # 宇闻
+    (r"/activity/yw_prize1", channel.redirect.YuWenPrizePageHandler),
+    # 聚合
+    (r"/activity/jh_prize1", channel.redirect.JuHePrizePageHandler),
+    (r"/activity/juhezfmt1", channel.bianxianmao.JuHeZhiFuMeiTuanCPCPageHandler),
+
+    # 外推砸蛋基类
+    (r"/activity/spread_egg", insurance.lottery.egg.SpreadEggBasePageHandler),
 
     # 黑色推广转盘
     (r"/activity/test_prize1", channel.redirect.TuiGuangPrizePageHandler),
@@ -2876,6 +3042,11 @@ HANDLERS= [
     # 微信泰康测保
     (r"/activity/weixin_calculate_taikang", channel.calculate_taikang.WeiXinCalculatePremiumTaiKang),
 
+    # 测试
+    (r"/activity/csdidi1", channel.duiba.CeShiDiDiPageHandler),
+    (r"/activity/csmeituan1", channel.didi.CeShiMeiTuanPageHandler),
+    (r"/activity/cszuhe1", channel.tv_yaoyiyao.CeShiZongHePageHandler),
+
     # 朗阁考试报名测试
     (r"/activity/langge", channel.langge.LangGeWaiYuPeiXunBaoMingPageHandler),
 
@@ -2906,6 +3077,10 @@ HANDLERS= [
     (r"/activity/red_packet_pick", insurance.lottery.red_packet.RedPacketPickHandler),
     (r"/activity_mgb/red_packet_pick", insurance.lottery.red_packet.RedPacketPickHandler),
 
+    # 微信投诉专用页
+    (r"/wecat/accuse", insurance.weixin.accuse.WeiXinAccuseHandler),
+    # (r"/wecat/accuse_result", insurance.lottery.red_packet.RedPacketPickHandler),
+
     # ----------------------------------------------  商城  --------------------------------------------------
 
     # 佛牌
@@ -2931,17 +3106,30 @@ HANDLERS= [
     # pos机
     # (r"/shop/pos1", shop.jingpin_shop.PosShopPageHandler),
     # (r"/shop/pos2", shop.jingpin_shop.Pos38ShopPageHandler),
-    (r"/shop/hnbflmpos1", shop.jingpin_shop.PosShopPageHandler),
-    (r"/shop/hnbflmpos2", shop.jingpin_shop.Pos38ShopPageHandler),
+    (r"/shop/flmpos1", shop.jingpin_shop.PosShopPageHandler),
+    (r"/shop/flmpos2", shop.jingpin_shop.Pos38ShopPageHandler),
+    (r"/shop/flmpos1_2", shop.jingpin_shop.Pos2ShopPageHandler),
+    (r"/shop/flmpos1_3", shop.jingpin_shop.Pos3ShopPageHandler),
 
     (r"/test_jump", page_base.TestRedirectPageHandler),
 
-    # ----------------------------------------------  接口  --------------------------------------------------
+
+    # --------------------------------------------  外推pos机  ------------------------------------------------
+    # 质子贷
+    (r"/shop/zzd_pos1", shop.jingpin_shop.ZhiZiDaiPosShopPageHandler),
+
+
+    # ----------------------------------------------  接口  ---------------------------------------------------
 
     (r"/shop/cixuanfu1", channel.cixuanfu.CiXuanFuPageHandler),
     (r"/shop/youhaoya1", channel.youhaoya.YouHaoYaPageHandler),
-    
-    #测试
+
+
+    # ---------------------------------------------  静态页面  -------------------------------------------------
+
+    (r"/activity/static_didi", channel.redirect.DiDiStaticPageHandler),
+    (r"/activity/static_meituan", channel.redirect.MeiTuanStaticPageHandler),
+
 ]
 
 
